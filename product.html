@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Detail Produk – TokoKita</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Toko<span>Kita</span></a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Toko</a></li>
+      <li class="has-drop"><a href="#">Kategori <i class="fas fa-chevron-down fa-xs"></i></a>
+        <div class="dropdown">
+          <a href="shop.html?cat=wanita"><i class="fas fa-female"></i> Wanita</a>
+          <a href="shop.html?cat=pria"><i class="fas fa-male"></i> Pria</a>
+          <a href="shop.html?cat=batik"><i class="fas fa-tshirt"></i> Batik</a>
+          <a href="shop.html?cat=aksesori"><i class="fas fa-gem"></i> Aksesori</a>
+        </div>
+      </li>
+      <li><a href="shop.html?filter=sale">Sale 🔥</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="account.html" class="nav-icon"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="nav-icon"><i class="far fa-heart"></i><span class="badge" id="wishCount">0</span></a>
+      <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="breadcrumb" style="justify-content:flex-start;padding:16px 0;font-size:.8rem;color:var(--gray-500)">
+    <a href="index.html">Beranda</a><i class="fas fa-chevron-right"></i>
+    <a href="shop.html">Toko</a><i class="fas fa-chevron-right"></i>
+    <span id="bcCat">-</span><i class="fas fa-chevron-right"></i>
+    <span id="bcName" style="color:var(--dark)">-</span>
+  </div>
+
+  <div class="product-detail">
+    <div class="product-detail-inner" id="productDetail">
+      <div style="text-align:center;padding:60px;color:var(--gray-500)"><i class="fas fa-spinner fa-spin fa-2x"></i><p style="margin-top:12px">Memuat produk...</p></div>
+    </div>
+  </div>
+
+  <!-- TABS: Deskripsi, Review, Pengiriman -->
+  <div id="productTabs" style="display:none;margin-bottom:48px">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('desc',this)">Deskripsi</button>
+      <button class="tab-btn" onclick="switchTab('review',this)">Ulasan (<span id="reviewCount">0</span>)</button>
+      <button class="tab-btn" onclick="switchTab('ship',this)">Pengiriman & Retur</button>
+    </div>
+    <div class="tab-content active" id="tab-desc"></div>
+    <div class="tab-content" id="tab-review"></div>
+    <div class="tab-content" id="tab-ship">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:8px 0">
+        <div>
+          <h4 style="font-size:.95rem;font-weight:700;margin-bottom:12px"><i class="fas fa-truck" style="color:var(--pink);margin-right:8px"></i>Informasi Pengiriman</h4>
+          <ul style="font-size:.86rem;line-height:2;color:#555;padding-left:18px">
+            <li>Gratis ongkir untuk pembelian min. Rp 150.000</li>
+            <li>JNE REG: 2-5 hari kerja</li>
+            <li>JNE YES: 1-2 hari kerja (surcharge)</li>
+            <li>SiCepat: 1-3 hari kerja</li>
+            <li>Go-Send / Grab Instant: Tersedia di Jakarta</li>
+            <li>Order sebelum jam 14.00 WIB dikirim hari ini</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:.95rem;font-weight:700;margin-bottom:12px"><i class="fas fa-undo" style="color:var(--pink);margin-right:8px"></i>Kebijakan Retur</h4>
+          <ul style="font-size:.86rem;line-height:2;color:#555;padding-left:18px">
+            <li>Retur dalam 30 hari sejak barang diterima</li>
+            <li>Barang harus dalam kondisi asli, belum dicuci</li>
+            <li>Tag / label masih terpasang</li>
+            <li>Refund dalam 3-5 hari kerja</li>
+            <li>Ongkos retur ditanggung TokoKita</li>
+            <li>Kecuali produk sale, tidak bisa diretur</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELATED PRODUCTS -->
+  <div id="relatedSection" style="display:none;padding-bottom:60px">
+    <h2 class="sec-title" style="margin-bottom:6px">Produk Terkait</h2>
+    <p class="sec-sub" style="margin-bottom:24px">Anda mungkin juga suka</p>
+    <div class="prod-grid" id="relatedGrid"></div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+<a href="cart.html" class="floating-cart" id="floatingCart"><i class="fas fa-shopping-bag"></i><span id="floatCount">0</span></a>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid rgba(255,255,255,.08)">
+      <div class="logo" style="color:#fff">Toko<span style="color:var(--pink)">Kita</span></div>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.4)">© 2026 TokoKita. Bangga Buatan Indonesia 🇮🇩</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const pid = parseInt(params.get('id')) || 1;
+const product = PRODUCTS.find(p => p.id === pid) || PRODUCTS[0];
+
+let selectedSize = product.sizes[0];
+let selectedColor = product.colors[0];
+let qty = 1;
+let wishedState = getWishlist().includes(product.id);
+
+document.getElementById('bcCat').textContent = product.category.charAt(0).toUpperCase() + product.category.slice(1);
+document.getElementById('bcName').textContent = product.name;
+document.title = product.name + ' – TokoKita';
+
+function renderDetail() {
+  const disc = product.oldPrice ? Math.round((1 - product.price/product.oldPrice)*100) : 0;
+  document.getElementById('productDetail').innerHTML = `
+    <div>
+      <div class="gallery-main" id="galleryMain">
+        <img src="${product.images[0]}" alt="${product.name}" id="mainImg"/>
+      </div>
+      <div class="gallery-thumbs">
+        ${product.images.map((img,i) => `
+          <div class="gallery-thumb ${i===0?'active':''}" onclick="changeImg('${img}',this)">
+            <img src="${img}" alt="thumb ${i+1}"/>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div>
+      <div class="pd-brand">${product.brand}</div>
+      <h1 class="pd-title">${product.name}</h1>
+      <div class="pd-rating-row">
+        <div>${getStars(product.rating)}</div>
+        <span class="pd-reviews">${product.rating} (${product.reviews} ulasan)</span>
+        <span class="pd-sold">${product.sold.toLocaleString('id')} terjual</span>
+      </div>
+      ${product.oldPrice ? `<div class="pd-price-old">${formatPrice(product.oldPrice)}</div>` : ''}
+      <div class="pd-price">${formatPrice(product.price)}</div>
+      ${disc ? `<span class="pd-discount">Hemat ${disc}%</span>` : ''}
+      <hr class="pd-divider"/>
+      <div class="pd-label">Pilih Ukuran</div>
+      <div class="variant-group" id="sizeGroup">
+        ${product.sizes.map(s => `<button class="variant-btn${s===selectedSize?' active':''}" onclick="selectSize('${s}',this)">${s}</button>`).join('')}
+      </div>
+      <div class="pd-label">Pilih Warna</div>
+      <div class="color-group" id="colorGroup">
+        ${product.colors.map((c,i) => `<button class="color-btn${i===0?' active':''}" style="background:${c}" onclick="selectColor('${c}',this)" title="${c}"></button>`).join('')}
+      </div>
+      <hr class="pd-divider"/>
+      <div class="pd-label">Jumlah <span style="font-weight:400;color:var(--gray-500)">(Stok: ${product.stock} pcs)</span></div>
+      <div class="qty-row">
+        <div class="qty-ctrl">
+          <button onclick="changeQty(-1)">−</button>
+          <input type="number" value="1" min="1" max="${product.stock}" id="qtyInput" onchange="qty=+this.value"/>
+          <button onclick="changeQty(1)">+</button>
+        </div>
+        <span style="font-size:.82rem;color:var(--gray-500)">Subtotal: <strong id="subtotal" style="color:var(--pink)">${formatPrice(product.price)}</strong></span>
+      </div>
+      <div class="pd-actions">
+        <button class="btn-buy" onclick="doAddCart()"><i class="fas fa-shopping-bag" style="margin-right:6px"></i>Tambah ke Keranjang</button>
+        <button class="btn-buy" style="background:var(--dark)" onclick="doBuyNow()"><i class="fas fa-bolt" style="margin-right:6px"></i>Beli Sekarang</button>
+        <button class="btn-wishlist ${wishedState?'active':''}" id="wishBtn" onclick="doToggleWish()">
+          <i class="${wishedState?'fas':'far'} fa-heart"></i>
+        </button>
+      </div>
+      <div class="pd-guarantee">
+        <div class="guarantee-item"><i class="fas fa-shield-alt"></i> Produk 100% Asli</div>
+        <div class="guarantee-item"><i class="fas fa-truck"></i> Gratis Ongkir ≥ Rp 150K</div>
+        <div class="guarantee-item"><i class="fas fa-undo"></i> Retur 30 Hari</div>
+        <div class="guarantee-item"><i class="fas fa-lock"></i> Pembayaran Aman</div>
+      </div>
+    </div>
+  `;
+  document.getElementById('productTabs').style.display = 'block';
+  document.getElementById('relatedSection').style.display = 'block';
+
+  // Tab: desc
+  document.getElementById('tab-desc').innerHTML = `
+    <div class="pd-desc" style="padding:8px 0">
+      <p>${product.description}</p>
+      <h4>Detail Produk</h4>
+      <ul>${product.details.map(d=>`<li>${d}</li>`).join('')}</ul>
+      <h4>Tag Produk</h4>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+        ${product.tags.map(t=>`<span style="background:var(--gray-200);border-radius:20px;padding:3px 12px;font-size:.75rem">#${t}</span>`).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('reviewCount').textContent = product.reviews;
+  const reviews = [
+    {name:'Siti R.', img:'https://i.pravatar.cc/38?img=1', rating:5, date:'12 Juni 2026', text:'Kualitasnya luar biasa! Sesuai dengan deskripsi dan gambar. Pengiriman cepat, packaging aman. Pasti beli lagi!', verified:true, photos:['https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=80&q=60']},
+    {name:'Budi S.', img:'https://i.pravatar.cc/38?img=5', rating:5, date:'8 Juni 2026', text:'Bahannya nyaman banget, motifnya cantik persis di foto. Ukuran M pas untuk badan saya 160cm 55kg. Recommended!', verified:true, photos:[]},
+    {name:'Dewi K.', img:'https://i.pravatar.cc/38?img=9', rating:4, date:'3 Juni 2026', text:'Bagus dan sesuai ekspektasi. Cuma warnanya sedikit lebih gelap dari foto. Tapi overall sangat puas!', verified:false, photos:[]},
+  ];
+  document.getElementById('tab-review').innerHTML = `
+    <div style="padding:8px 0">
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--gray-200)">
+        <div style="text-align:center;background:var(--gray-100);border-radius:12px;padding:24px">
+          <div style="font-size:3rem;font-weight:800;color:var(--pink)">${product.rating}</div>
+          <div style="color:#f5a623;font-size:1rem;margin:4px 0">★★★★★</div>
+          <div style="font-size:.78rem;color:var(--gray-500)">${product.reviews} ulasan</div>
+        </div>
+        <div>
+          ${[5,4,3,2,1].map(n=>{
+            const pct = n===5?65:n===4?25:n===3?6:n===2?3:1;
+            return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+              <span style="font-size:.78rem;white-space:nowrap;width:30px">${n} ★</span>
+              <div style="flex:1;height:7px;background:var(--gray-200);border-radius:4px"><div style="width:${pct}%;height:100%;background:#f5a623;border-radius:4px"></div></div>
+              <span style="font-size:.75rem;color:var(--gray-500);width:30px">${pct}%</span>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+      ${reviews.map(r=>`
+        <div class="review-item">
+          <div class="review-header">
+            <img src="${r.img}" alt="${r.name}"/>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span class="review-name">${r.name}</span>
+                ${r.verified?'<span class="review-verified">✓ Pembelian Terverifikasi</span>':''}
+              </div>
+              <div style="display:flex;gap:4px;margin:2px 0">
+                ${Array(r.rating).fill('<i class="fas fa-star" style="color:#f5a623;font-size:.75rem"></i>').join('')}
+              </div>
+              <span class="review-date">${r.date}</span>
+            </div>
+          </div>
+          <p class="review-text">${r.text}</p>
+          ${r.photos.length ? `<div class="review-photos">${r.photos.map(p=>`<img src="${p}" alt="review"/>`).join('')}</div>` : ''}
+        </div>
+      `).join('')}
+      <button style="width:100%;border:1.5px solid var(--gray-300);background:#fff;border-radius:10px;padding:12px;font-size:.86rem;font-weight:600;cursor:pointer;margin-top:16px">Lihat Semua ${product.reviews} Ulasan</button>
+    </div>
+  `;
+
+  // Related products
+  const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0,4);
+  renderProducts('relatedGrid', related);
+}
+
+function changeImg(src, el) {
+  document.getElementById('mainImg').src = src;
+  document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+function selectSize(s, el) {
+  selectedSize = s;
+  document.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
+function selectColor(c, el) {
+  selectedColor = c;
+  document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
+function changeQty(d) {
+  qty = Math.max(1, Math.min(product.stock, qty + d));
+  document.getElementById('qtyInput').value = qty;
+  document.getElementById('subtotal').textContent = formatPrice(product.price * qty);
+}
+function doAddCart() {
+  addToCartById(product.id, qty, selectedSize, selectedColor);
+}
+function doBuyNow() {
+  addToCartById(product.id, qty, selectedSize, selectedColor);
+  window.location.href = 'cart.html';
+}
+function doToggleWish() {
+  wishedState = !wishedState;
+  const btn = document.getElementById('wishBtn');
+  btn.classList.toggle('active', wishedState);
+  btn.querySelector('i').className = wishedState ? 'fas fa-heart' : 'far fa-heart';
+  toggleWish(product.id, null);
+}
+function switchTab(id, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  el.classList.add('active');
+}
+renderDetail();
+</script>
+</body>
+</html>

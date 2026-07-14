@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Checkout – TokoKita</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar" style="box-shadow:0 1px 8px rgba(0,0,0,.06)">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Toko<span>Kita</span></a>
+    <div style="display:flex;align-items:center;gap:6px;font-size:.84rem;color:var(--gray-500)">
+      <i class="fas fa-lock" style="color:#10b981"></i>
+      Checkout Aman
+    </div>
+    <div class="nav-right">
+      <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Progress Steps -->
+<div style="background:#fff;border-bottom:1px solid var(--gray-200);padding:16px 0">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:center;gap:0">
+      <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--pink)">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem">1</div>
+        Keranjang
+      </div>
+      <div style="width:60px;height:1px;background:var(--pink);margin:0 8px"></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--pink)">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem">2</div>
+        Checkout
+      </div>
+      <div style="width:60px;height:1px;background:var(--gray-300);margin:0 8px"></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:500;color:var(--gray-500)">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--gray-300);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem">3</div>
+        Konfirmasi
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="checkout-layout">
+    <div id="checkoutLeft">
+      <!-- Alamat Pengiriman -->
+      <div class="checkout-section">
+        <h3><span class="step-num">1</span> Alamat Pengiriman</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Nama Depan</label><input type="text" placeholder="Siti" value="Siti"/></div>
+          <div class="form-group"><label>Nama Belakang</label><input type="text" placeholder="Rahayu" value="Rahayu"/></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="email@contoh.com" value="siti.rahayu@email.com"/></div>
+        <div class="form-group"><label>No. Telepon / WhatsApp</label><input type="tel" placeholder="08xxxxxxxxxx" value="0812-3456-7890"/></div>
+        <div class="form-group"><label>Alamat Lengkap</label><input type="text" placeholder="Jl., No. Rumah, RT/RW" value="Jl. Melati No. 12, RT 03/RW 05"/></div>
+        <div class="form-row">
+          <div class="form-group"><label>Kota / Kabupaten</label>
+            <select>
+              <option>Jakarta Selatan</option><option>Jakarta Pusat</option><option>Surabaya</option><option>Bandung</option><option>Yogyakarta</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Provinsi</label>
+            <select>
+              <option>DKI Jakarta</option><option>Jawa Timur</option><option>Jawa Barat</option><option>DI Yogyakarta</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Kode Pos</label><input type="text" placeholder="12345" value="12420" style="max-width:160px"/></div>
+        <div class="form-group"><label>Catatan (opsional)</label><textarea rows="2" placeholder="Catatan untuk kurir..." style="resize:none"></textarea></div>
+      </div>
+
+      <!-- Metode Pengiriman -->
+      <div class="checkout-section">
+        <h3><span class="step-num">2</span> Metode Pengiriman</h3>
+        <div class="shipping-option active" onclick="selectShipping(this,15000,'JNE REG')">
+          <div style="display:flex;align-items:center;gap:10px"><input type="radio" name="ship" checked/><div><div style="font-weight:600;font-size:.88rem">JNE Reguler</div><div style="font-size:.76rem;color:var(--gray-500)">Estimasi 2–5 hari kerja</div></div></div>
+          <span style="font-weight:700;font-size:.9rem">Rp 15.000</span>
+        </div>
+        <div class="shipping-option" onclick="selectShipping(this,28000,'JNE YES')">
+          <div style="display:flex;align-items:center;gap:10px"><input type="radio" name="ship"/><div><div style="font-weight:600;font-size:.88rem">JNE YES (1 Hari)</div><div style="font-size:.76rem;color:var(--gray-500)">Estimasi 1–2 hari kerja</div></div></div>
+          <span style="font-weight:700;font-size:.9rem">Rp 28.000</span>
+        </div>
+        <div class="shipping-option" onclick="selectShipping(this,18000,'SiCepat')">
+          <div style="display:flex;align-items:center;gap:10px"><input type="radio" name="ship"/><div><div style="font-weight:600;font-size:.88rem">SiCepat Reguler</div><div style="font-size:.76rem;color:var(--gray-500)">Estimasi 1–3 hari kerja</div></div></div>
+          <span style="font-weight:700;font-size:.9rem">Rp 18.000</span>
+        </div>
+        <div class="shipping-option" onclick="selectShipping(this,0,'Go-Send Instant')">
+          <div style="display:flex;align-items:center;gap:10px"><input type="radio" name="ship"/><div><div style="font-weight:600;font-size:.88rem">Go-Send Instant <span style="background:#10b981;color:#fff;font-size:.65rem;padding:2px 6px;border-radius:4px;margin-left:4px">CEPAT</span></div><div style="font-size:.76rem;color:var(--gray-500)">Khusus area Jakarta • Estimasi 1–3 jam</div></div></div>
+          <span style="font-weight:700;font-size:.9rem;color:#10b981">Gratis</span>
+        </div>
+      </div>
+
+      <!-- Metode Pembayaran -->
+      <div class="checkout-section">
+        <h3><span class="step-num">3</span> Metode Pembayaran</h3>
+        <div class="payment-option active" onclick="selectPayment(this)">
+          <input type="radio" name="pay" checked/>
+          <div><div class="payment-label">Transfer Bank (Virtual Account)</div><div class="payment-sub">BCA, Mandiri, BNI, BRI</div></div>
+          <i class="fas fa-university" style="margin-left:auto;color:var(--gray-500)"></i>
+        </div>
+        <div class="payment-option" onclick="selectPayment(this)">
+          <input type="radio" name="pay"/>
+          <div><div class="payment-label">DANA</div><div class="payment-sub">Bayar langsung dari DANA</div></div>
+          <i class="fas fa-wallet" style="margin-left:auto;color:#108ee9"></i>
+        </div>
+        <div class="payment-option" onclick="selectPayment(this)">
+          <input type="radio" name="pay"/>
+          <div><div class="payment-label">GoPay / OVO</div><div class="payment-sub">Scan QR atau link akun</div></div>
+          <i class="fas fa-qrcode" style="margin-left:auto;color:#00aed6"></i>
+        </div>
+        <div class="payment-option" onclick="selectPayment(this)">
+          <input type="radio" name="pay"/>
+          <div><div class="payment-label">Kartu Kredit / Debit</div><div class="payment-sub">Visa, Mastercard, JCB</div></div>
+          <i class="fas fa-credit-card" style="margin-left:auto;color:var(--gray-500)"></i>
+        </div>
+        <div class="payment-option" onclick="selectPayment(this)">
+          <input type="radio" name="pay"/>
+          <div><div class="payment-label">Cicilan 0% (Kartu Kredit)</div><div class="payment-sub">3, 6, 12, 24 bulan</div></div>
+          <i class="fas fa-calendar-alt" style="margin-left:auto;color:var(--gray-500)"></i>
+        </div>
+        <div class="payment-option" onclick="selectPayment(this)">
+          <input type="radio" name="pay"/>
+          <div><div class="payment-label">Indomaret / Alfamart</div><div class="payment-sub">Bayar di minimarket terdekat</div></div>
+          <i class="fas fa-store" style="margin-left:auto;color:#e84142"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div>
+      <div class="cart-summary" style="position:sticky;top:90px">
+        <h3>Ringkasan Pesanan</h3>
+        <div id="checkoutItems"></div>
+        <hr style="border:none;border-top:1px solid var(--gray-200);margin:14px 0"/>
+        <div class="summary-row"><span>Subtotal</span><span id="ckSubtotal">Rp 0</span></div>
+        <div class="summary-row"><span>Ongkos Kirim</span><span id="ckShipping">Rp 15.000</span></div>
+        <div class="summary-row total"><span>Total</span><span id="ckTotal" style="color:var(--pink)">Rp 0</span></div>
+        <button onclick="placeOrder()" class="btn-checkout-main"><i class="fas fa-lock" style="margin-right:8px"></i>Buat Pesanan</button>
+        <p style="text-align:center;font-size:.75rem;color:var(--gray-500);margin-top:12px">Dengan memesan, Anda setuju dengan <a href="#" style="color:var(--pink)">Syarat & Ketentuan</a> kami</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div id="successModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:none;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:20px;padding:40px;max-width:460px;width:90%;text-align:center">
+    <div style="width:80px;height:80px;background:#f0fdf4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2rem;color:#10b981">✓</div>
+    <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:8px">Pesanan Berhasil Dibuat!</h2>
+    <p style="color:var(--gray-500);font-size:.88rem;margin-bottom:6px">No. Pesanan: <strong style="color:var(--dark)">#TK-2026-88241</strong></p>
+    <p style="color:var(--gray-500);font-size:.86rem;margin-bottom:24px">Konfirmasi pesanan akan dikirim ke email Anda. Silakan selesaikan pembayaran dalam 24 jam.</p>
+    <div style="background:var(--gray-100);border-radius:12px;padding:16px;margin-bottom:20px;text-align:left">
+      <div style="font-size:.8rem;font-weight:700;margin-bottom:8px">Virtual Account BCA</div>
+      <div style="font-size:1.3rem;font-weight:800;letter-spacing:3px;color:var(--dark)">1234 5678 9012 3456</div>
+      <div style="font-size:.76rem;color:var(--gray-500);margin-top:4px">Batas pembayaran: 24 jam</div>
+    </div>
+    <a href="account.html#orders"><button style="width:100%;background:var(--pink);color:#fff;border:none;padding:14px;border-radius:30px;font-weight:700;font-size:.92rem;cursor:pointer;font-family:'Poppins',sans-serif">Lihat Status Pesanan</button></a>
+    <a href="index.html"><button style="width:100%;background:#fff;color:var(--dark);border:1.5px solid var(--gray-300);padding:12px;border-radius:30px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:'Poppins',sans-serif;margin-top:10px">Lanjut Belanja</button></a>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+let shippingCost = 15000;
+
+function renderCheckoutItems() {
+  const cart = getCart();
+  if (cart.length === 0) { window.location.href = 'cart.html'; return; }
+  const subtotal = getCartTotal();
+  const total = subtotal + shippingCost;
+  document.getElementById('checkoutItems').innerHTML = cart.map(i => `
+    <div style="display:flex;gap:10px;margin-bottom:12px;align-items:center">
+      <img src="${i.image}" style="width:52px;height:52px;border-radius:8px;object-fit:cover;flex-shrink:0" alt="${i.name}"/>
+      <div style="flex:1">
+        <div style="font-size:.82rem;font-weight:600;line-height:1.3">${i.name}</div>
+        <div style="font-size:.74rem;color:var(--gray-500)">${i.size} × ${i.qty}</div>
+      </div>
+      <div style="font-size:.86rem;font-weight:700;color:var(--pink)">${formatPrice(i.price*i.qty)}</div>
+    </div>
+  `).join('');
+  document.getElementById('ckSubtotal').textContent = formatPrice(subtotal);
+  document.getElementById('ckShipping').textContent = shippingCost === 0 ? 'GRATIS' : formatPrice(shippingCost);
+  document.getElementById('ckTotal').textContent = formatPrice(total);
+}
+
+function selectShipping(el, cost, name) {
+  document.querySelectorAll('.shipping-option').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+  el.querySelector('input').checked = true;
+  shippingCost = cost;
+  renderCheckoutItems();
+}
+function selectPayment(el) {
+  document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+  el.querySelector('input').checked = true;
+}
+function placeOrder() {
+  const modal = document.getElementById('successModal');
+  modal.style.display = 'flex';
+  localStorage.removeItem('tokokita_cart');
+  updateCartUI();
+}
+
+// Seed cart if empty
+if (getCart().length === 0) {
+  const cart = [
+    {key:'1-M-default',id:1,qty:1,name:'Dress Batik Floral Modern',brand:'BatikNusa Studio',price:189000,image:PRODUCTS[0].images[0],size:'M',color:'#8B4513'},
+    {key:'3-ONE SIZE-default',id:3,qty:2,name:'Tas Anyaman Rotan Bali',brand:'BaliCraft',price:145000,image:PRODUCTS[2].images[0],size:'ONE SIZE',color:'#C4A265'}
+  ];
+  localStorage.setItem('tokokita_cart', JSON.stringify(cart));
+}
+renderCheckoutItems();
+</script>
+</body>
+</html>

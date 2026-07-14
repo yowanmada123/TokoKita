@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Daftar – TokoKita</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Toko<span>Kita</span></a>
+    <div style="font-size:.84rem;color:var(--gray-500)">Sudah punya akun? <a href="login.html" style="color:var(--pink);font-weight:600">Masuk</a></div>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card" style="max-width:500px">
+    <div class="auth-logo"><a href="index.html" class="logo">Toko<span>Kita</span></a></div>
+    <h2>Buat Akun Baru</h2>
+    <p class="auth-sub">Daftar gratis dan dapatkan diskon 20% untuk pembelian pertama</p>
+    <div style="background:linear-gradient(135deg,var(--pink),#ff6b6b);border-radius:10px;padding:12px 16px;margin-bottom:18px;display:flex;align-items:center;gap:10px">
+      <i class="fas fa-gift" style="color:#fff;font-size:1.1rem"></i>
+      <div style="font-size:.82rem;color:#fff"><strong>Bonus Member Baru:</strong> Diskon 20% + Gratis Ongkir untuk pesanan pertama!</div>
+    </div>
+    <button class="btn-social"><img src="https://www.svgrepo.com/show/475656/google-color.svg" style="width:18px;height:18px"/> Daftar dengan Google</button>
+    <div class="auth-divider"><span>atau daftar dengan email</span></div>
+    <form onsubmit="doRegister(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Nama Depan</label><input type="text" placeholder="Nama depan" required/></div>
+        <div class="form-group"><label>Nama Belakang</label><input type="text" placeholder="Nama belakang" required/></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="email@contoh.com" required/></div>
+      <div class="form-group"><label>No. HP / WhatsApp</label><input type="tel" placeholder="08xxxxxxxxxx"/></div>
+      <div class="form-group">
+        <label>Kata Sandi</label>
+        <input type="password" placeholder="Min. 8 karakter" required/>
+        <div id="strengthBar" style="height:4px;border-radius:2px;background:var(--gray-200);margin-top:6px"><div style="height:100%;width:0%;border-radius:2px;background:var(--pink);transition:width .3s"></div></div>
+      </div>
+      <div class="form-group"><label>Konfirmasi Kata Sandi</label><input type="password" placeholder="Ulangi kata sandi" required/></div>
+      <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:16px">
+        <input type="checkbox" id="agree" style="accent-color:var(--pink);margin-top:3px" required/>
+        <label for="agree" style="font-size:.82rem;line-height:1.5">Saya setuju dengan <a href="#" style="color:var(--pink)">Syarat & Ketentuan</a> dan <a href="#" style="color:var(--pink)">Kebijakan Privasi</a> TokoKita</label>
+      </div>
+      <button type="submit" class="auth-submit">Buat Akun Gratis</button>
+    </form>
+    <p class="auth-footer">Sudah punya akun? <a href="login.html">Masuk di sini</a></p>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script>
+function doRegister(e){e.preventDefault();showToast('🎉 Akun berhasil dibuat! Cek email untuk verifikasi.','success');setTimeout(()=>window.location.href='account.html',1800);}
+</script>
+</body>
+</html>

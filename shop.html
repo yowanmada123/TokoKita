@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Toko – TokoKita Fashion Lokal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Toko<span>Kita</span></a>
+    <ul class="nav-links">
+      <li class="active"><a href="shop.html">Toko</a></li>
+      <li class="has-drop"><a href="#">Kategori <i class="fas fa-chevron-down fa-xs"></i></a>
+        <div class="dropdown">
+          <a href="shop.html?cat=wanita"><i class="fas fa-female"></i> Wanita</a>
+          <a href="shop.html?cat=pria"><i class="fas fa-male"></i> Pria</a>
+          <a href="shop.html?cat=anak"><i class="fas fa-child"></i> Anak</a>
+          <a href="shop.html?cat=batik"><i class="fas fa-tshirt"></i> Batik</a>
+          <a href="shop.html?cat=aksesori"><i class="fas fa-gem"></i> Aksesori</a>
+          <a href="shop.html?cat=sepatu"><i class="fas fa-shoe-prints"></i> Sepatu</a>
+        </div>
+      </li>
+      <li><a href="shop.html?filter=sale">Sale 🔥</a></li>
+      <li><a href="about.html">Tentang</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="search-wrap"><input type="text" placeholder="Cari produk..." class="nav-search" id="navSearch"/><i class="fas fa-search"></i></div>
+      <a href="account.html" class="nav-icon"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="nav-icon"><i class="far fa-heart"></i><span class="badge" id="wishCount">0</span></a>
+      <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">0</span></a>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero" style="padding:40px 0;text-align:left">
+  <div class="container">
+    <h1 id="shopTitle">Semua Produk</h1>
+    <div class="breadcrumb" style="justify-content:flex-start">
+      <a href="index.html">Beranda</a><i class="fas fa-chevron-right"></i>
+      <span id="breadCat">Toko</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="shop-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar-filter">
+      <div class="filter-card">
+        <div class="filter-title">Kategori <i class="fas fa-chevron-up"></i></div>
+        <div id="catList"></div>
+      </div>
+      <div class="filter-card">
+        <div class="filter-title">Harga <i class="fas fa-chevron-up"></i></div>
+        <div class="filter-option"><input type="checkbox" id="p1"/><label for="p1">Di bawah Rp 100.000</label></div>
+        <div class="filter-option"><input type="checkbox" id="p2"/><label for="p2">Rp 100.000 – 200.000</label></div>
+        <div class="filter-option"><input type="checkbox" id="p3"/><label for="p3">Rp 200.000 – 350.000</label></div>
+        <div class="filter-option"><input type="checkbox" id="p4"/><label for="p4">Di atas Rp 350.000</label></div>
+        <div class="price-range-wrap" style="margin-top:12px">
+          <div style="font-size:.76rem;color:var(--gray-500);margin-bottom:6px">Atau masukkan rentang harga:</div>
+          <div class="price-inputs">
+            <input type="number" placeholder="Min" id="priceMin"/>
+            <span style="color:var(--gray-500)">–</span>
+            <input type="number" placeholder="Max" id="priceMax"/>
+          </div>
+        </div>
+      </div>
+      <div class="filter-card">
+        <div class="filter-title">Ukuran <i class="fas fa-chevron-up"></i></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="size-btn" onclick="this.classList.toggle('active')" style="padding:6px 12px;border:1.5px solid var(--gray-300);border-radius:6px;background:#fff;font-size:.8rem;cursor:pointer;transition:all .2s">XS</button>
+          <button class="size-btn" onclick="this.classList.toggle('active')" style="padding:6px 12px;border:1.5px solid var(--gray-300);border-radius:6px;background:#fff;font-size:.8rem;cursor:pointer">S</button>
+          <button class="size-btn" onclick="this.classList.toggle('active')" style="padding:6px 12px;border:1.5px solid var(--gray-300);border-radius:6px;background:#fff;font-size:.8rem;cursor:pointer">M</button>
+          <button class="size-btn" onclick="this.classList.toggle('active')" style="padding:6px 12px;border:1.5px solid var(--gray-300);border-radius:6px;background:#fff;font-size:.8sm;cursor:pointer">L</button>
+          <button class="size-btn" onclick="this.classList.toggle('active')" style="padding:6px 12px;border:1.5px solid var(--gray-300);border-radius:6px;background:#fff;font-size:.8rem;cursor:pointer">XL</button>
+          <button class="size-btn" onclick="this.classList.toggle('active')" style="padding:6px 12px;border:1.5px solid var(--gray-300);border-radius:6px;background:#fff;font-size:.8rem;cursor:pointer">XXL</button>
+        </div>
+        <style>.size-btn.active{background:var(--dark)!important;color:#fff;border-color:var(--dark)!important}</style>
+      </div>
+      <div class="filter-card">
+        <div class="filter-title">Rating <i class="fas fa-chevron-up"></i></div>
+        <div class="filter-option"><input type="radio" name="rating" id="r5"/><label for="r5">★★★★★ (5.0)</label></div>
+        <div class="filter-option"><input type="radio" name="rating" id="r4"/><label for="r4">★★★★☆ ke atas</label></div>
+        <div class="filter-option"><input type="radio" name="rating" id="r3"/><label for="r3">★★★☆☆ ke atas</label></div>
+      </div>
+      <div class="filter-card">
+        <div class="filter-title">Asal Daerah <i class="fas fa-chevron-up"></i></div>
+        <div class="filter-option"><input type="checkbox" id="jawa"/><label for="jawa">Jawa</label><span>6</span></div>
+        <div class="filter-option"><input type="checkbox" id="bali"/><label for="bali">Bali</label><span>2</span></div>
+        <div class="filter-option"><input type="checkbox" id="ntt"/><label for="ntt">Nusa Tenggara</label><span>2</span></div>
+        <div class="filter-option"><input type="checkbox" id="sulawesi"/><label for="sulawesi">Sulawesi</label><span>1</span></div>
+      </div>
+      <button onclick="resetFilters()" style="width:100%;background:#fff;border:1.5px solid var(--gray-300);border-radius:8px;padding:10px;font-size:.84rem;font-weight:600;cursor:pointer;color:var(--gray-700)"><i class="fas fa-redo" style="margin-right:6px"></i>Reset Filter</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div>
+      <div class="active-filters" id="activeFilters"></div>
+      <div class="shop-toolbar">
+        <div class="shop-count" id="shopCount">Menampilkan 12 dari 12 produk</div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="display:flex;gap:4px">
+            <button id="viewGrid" onclick="setView('grid')" style="padding:7px 10px;border:1.5px solid var(--gray-300);border-radius:6px;background:#fff;cursor:pointer;color:var(--pink)"><i class="fas fa-th"></i></button>
+            <button id="viewList" onclick="setView('list')" style="padding:7px 10px;border:1.5px solid var(--gray-300);border-radius:6px;background:#fff;cursor:pointer"><i class="fas fa-list"></i></button>
+          </div>
+          <select class="shop-sort" id="sortSelect" onchange="sortProducts()">
+            <option value="featured">Pilihan Kami</option>
+            <option value="newest">Terbaru</option>
+            <option value="price-low">Harga: Termurah</option>
+            <option value="price-high">Harga: Termahal</option>
+            <option value="rating">Rating Tertinggi</option>
+            <option value="bestseller">Terlaris</option>
+          </select>
+        </div>
+      </div>
+      <div class="prod-grid" id="shopGrid"></div>
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid rgba(255,255,255,.08)">
+      <div class="logo" style="color:#fff">Toko<span style="color:var(--pink)">Kita</span></div>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.4)">© 2026 TokoKita. Bangga Buatan Indonesia 🇮🇩</p>
+      <div style="display:flex;gap:12px">
+        <a href="index.html" style="color:rgba(255,255,255,.5);font-size:.83rem">Beranda</a>
+        <a href="about.html" style="color:rgba(255,255,255,.5);font-size:.83rem">Tentang</a>
+        <a href="cart.html" style="color:rgba(255,255,255,.5);font-size:.83rem">Keranjang</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+let currentCat = 'semua';
+let currentSort = 'featured';
+
+// Read URL params
+const params = new URLSearchParams(window.location.search);
+if (params.get('cat')) currentCat = params.get('cat');
+if (params.get('filter') === 'sale') currentCat = 'sale';
+if (params.get('filter') === 'new') currentCat = 'new';
+
+// Render categories
+const catList = document.getElementById('catList');
+catList.innerHTML = CATEGORIES.map(c => `
+  <div class="filter-option" onclick="filterByCat('${c.id}',this)">
+    <input type="radio" name="cat" ${currentCat === c.id ? 'checked' : ''} style="accent-color:var(--pink)"/>
+    <label style="cursor:pointer">${c.label}</label>
+    <span>${c.count}</span>
+  </div>
+`).join('') + `
+  <div class="filter-option" onclick="filterByCat('sale',this)">
+    <input type="radio" name="cat" ${currentCat==='sale'?'checked':''}  style="accent-color:var(--pink)"/>
+    <label style="cursor:pointer">Sale 🔥</label>
+    <span>${PRODUCTS.filter(p=>p.isSale).length}</span>
+  </div>
+`;
+
+function getFiltered() {
+  let prods = [...PRODUCTS];
+  if (currentCat === 'sale') prods = prods.filter(p => p.isSale);
+  else if (currentCat === 'new') prods = prods.filter(p => p.isNew);
+  else if (currentCat !== 'semua') prods = prods.filter(p => p.category === currentCat);
+  if (currentSort === 'price-low') prods.sort((a,b) => a.price - b.price);
+  else if (currentSort === 'price-high') prods.sort((a,b) => b.price - a.price);
+  else if (currentSort === 'rating') prods.sort((a,b) => b.rating - a.rating);
+  else if (currentSort === 'newest') prods.sort((a,b) => b.id - a.id);
+  else if (currentSort === 'bestseller') prods.sort((a,b) => b.sold - a.sold);
+  return prods;
+}
+
+function render() {
+  const prods = getFiltered();
+  renderProducts('shopGrid', prods);
+  document.getElementById('shopCount').textContent = `Menampilkan ${prods.length} dari ${PRODUCTS.length} produk`;
+  // Update page title
+  const labels = {wanita:'Wanita',pria:'Pria',anak:'Anak',aksesori:'Aksesori',sepatu:'Sepatu',batik:'Batik',sale:'Sale 🔥',new:'Produk Baru',semua:'Semua Produk'};
+  document.getElementById('shopTitle').textContent = labels[currentCat] || 'Semua Produk';
+  document.getElementById('breadCat').textContent = labels[currentCat] || 'Toko';
+}
+
+function filterByCat(cat) { currentCat = cat; render(); }
+function sortProducts() { currentSort = document.getElementById('sortSelect').value; render(); }
+function resetFilters() { currentCat = 'semua'; currentSort = 'featured'; document.getElementById('sortSelect').value = 'featured'; render(); }
+function setView(v) {
+  const grid = document.getElementById('shopGrid');
+  grid.style.gridTemplateColumns = v === 'list' ? '1fr' : 'repeat(auto-fill,minmax(220px,1fr))';
+}
+render();
+</script>
+</body>
+</html>

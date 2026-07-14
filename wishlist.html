@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Wishlist – TokoKita</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Toko<span>Kita</span></a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Toko</a></li>
+      <li><a href="shop.html?filter=sale">Sale 🔥</a></li>
+      <li><a href="about.html">Tentang</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="account.html" class="nav-icon"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="nav-icon" style="color:var(--pink)"><i class="fas fa-heart"></i><span class="badge" id="wishCount">0</span></a>
+      <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero" style="padding:32px 0;text-align:left">
+  <div class="container">
+    <h1><i class="fas fa-heart" style="color:var(--pink);margin-right:12px"></i>Wishlist Saya</h1>
+    <div class="breadcrumb" style="justify-content:flex-start;margin-top:8px">
+      <a href="index.html">Beranda</a><i class="fas fa-chevron-right"></i><span>Wishlist</span>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding:40px 24px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+    <div style="font-size:.9rem;color:var(--gray-500)" id="wishMeta">0 produk tersimpan</div>
+    <div style="display:flex;gap:10px">
+      <button onclick="addAllToCart()" class="btn-primary" style="font-size:.84rem;padding:10px 20px"><i class="fas fa-shopping-bag" style="margin-right:6px"></i>Tambah Semua ke Keranjang</button>
+      <button onclick="clearWishlist()" style="border:1.5px solid var(--gray-300);background:#fff;border-radius:30px;padding:10px 20px;font-size:.84rem;font-weight:600;cursor:pointer;color:var(--gray-700)"><i class="fas fa-trash" style="margin-right:6px"></i>Hapus Semua</button>
+    </div>
+  </div>
+  <div id="wishlistGrid" class="prod-grid"></div>
+  <div id="wishlistEmpty" style="display:none;text-align:center;padding:80px 20px;background:#fff;border-radius:var(--radius);border:1px solid var(--gray-200)">
+    <i class="far fa-heart" style="font-size:4rem;color:var(--gray-200);display:block;margin-bottom:20px"></i>
+    <h2 style="font-size:1.3rem;margin-bottom:8px">Wishlist Anda Kosong</h2>
+    <p style="color:var(--gray-500);margin-bottom:24px">Simpan produk favorit Anda agar mudah ditemukan nanti.</p>
+    <a href="shop.html" class="btn-primary">Jelajahi Produk</a>
+  </div>
+</div>
+
+<section class="section bg-light" style="padding-top:40px">
+  <div class="container">
+    <div class="sec-header flex-between">
+      <div><h2 class="sec-title">Rekomendasi untuk Anda</h2><p class="sec-sub">Berdasarkan riwayat wishlist Anda</p></div>
+      <a href="shop.html" class="btn-link">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="prod-grid" id="recGrid"></div>
+  </div>
+</section>
+
+<div class="toast-container" id="toastContainer"></div>
+<a href="cart.html" class="floating-cart"><i class="fas fa-shopping-bag"></i><span id="floatCount">0</span></a>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid rgba(255,255,255,.08)">
+      <div class="logo" style="color:#fff">Toko<span style="color:var(--pink)">Kita</span></div>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.4)">© 2026 TokoKita. Bangga Buatan Indonesia 🇮🇩</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+// Seed wishlist dengan beberapa produk demo
+let wish = getWishlist();
+if (wish.length === 0) {
+  wish = [1, 3, 7, 11];
+  localStorage.setItem('tokokita_wish', JSON.stringify(wish));
+}
+
+function renderWishlist() {
+  const wish = getWishlist();
+  const grid = document.getElementById('wishlistGrid');
+  const empty = document.getElementById('wishlistEmpty');
+  document.getElementById('wishMeta').textContent = `${wish.length} produk tersimpan`;
+  const wc = document.getElementById('wishCount');
+  if (wc) wc.textContent = wish.length;
+
+  if (wish.length === 0) {
+    grid.style.display = 'none';
+    empty.style.display = 'block';
+    return;
+  }
+  grid.style.display = 'grid';
+  empty.style.display = 'none';
+  const prods = wish.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+  grid.innerHTML = prods.map(p => `
+    <div class="prod-card">
+      <div class="prod-card-img">
+        <img src="${p.images[0]}" alt="${p.name}" loading="lazy"/>
+        ${p.badge ? `<span class="prod-card-badge${p.badge==='NEW'?' green':p.badge==='HOT'?' blue':''}">${p.badge}</span>` : ''}
+        <button class="prod-wish active" onclick="removeFromWishlist(${p.id})" title="Hapus dari wishlist">
+          <i class="fas fa-heart"></i>
+        </button>
+      </div>
+      <div class="prod-info">
+        <div class="prod-brand">${p.brand}</div>
+        <div class="prod-name"><a href="product.html?id=${p.id}">${p.name}</a></div>
+        <div class="prod-stars">
+          ${getStars(p.rating)}
+          <span>(${p.reviews})</span>
+        </div>
+        <div class="prod-price-row">
+          <div>
+            ${p.oldPrice ? `<span class="prod-price-old">${formatPrice(p.oldPrice)}</span>` : ''}
+            <span class="prod-price">${formatPrice(p.price)}</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCartById(${p.id})">
+            <i class="fas fa-shopping-bag"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function removeFromWishlist(id) {
+  let wish = getWishlist().filter(i => i !== id);
+  localStorage.setItem('tokokita_wish', JSON.stringify(wish));
+  showToast('Dihapus dari wishlist', 'info');
+  renderWishlist();
+}
+
+function addAllToCart() {
+  const wish = getWishlist();
+  wish.forEach(id => addToCartById(id));
+  showToast(`🛍️ ${wish.length} produk ditambahkan ke keranjang!`, 'success');
+}
+
+function clearWishlist() {
+  if (confirm('Hapus semua wishlist?')) {
+    localStorage.removeItem('tokokita_wish');
+    renderWishlist();
+    showToast('Wishlist dikosongkan', 'info');
+  }
+}
+
+renderWishlist();
+renderProducts('recGrid', PRODUCTS.filter(p => !getWishlist().includes(p.id)).slice(0, 4));
+</script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Akun Saya – TokoKita</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Toko<span>Kita</span></a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Toko</a></li>
+      <li><a href="shop.html?filter=sale">Sale 🔥</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="wishlist.html" class="nav-icon"><i class="far fa-heart"></i><span class="badge" id="wishCount">0</span></a>
+      <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero" style="padding:32px 0;text-align:left">
+  <div class="container">
+    <h1>Akun Saya</h1>
+    <div class="breadcrumb" style="justify-content:flex-start;margin-top:8px">
+      <a href="index.html">Beranda</a><i class="fas fa-chevron-right"></i><span>Akun Saya</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="account-layout">
+    <!-- SIDEBAR -->
+    <aside class="account-sidebar">
+      <div class="account-avatar">
+        <img src="https://i.pravatar.cc/72?img=1" alt="avatar"/>
+        <strong>Siti Rahayu</strong>
+        <span>Member Platinum</span>
+        <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin-top:6px">
+          <i class="fas fa-star" style="color:#f5a623;font-size:.7rem"></i>
+          <span style="font-size:.72rem;color:var(--gray-500)">4.850 poin</span>
+        </div>
+      </div>
+      <nav class="account-nav">
+        <a href="#" class="active" onclick="showSection('overview',this)"><i class="fas fa-home"></i> Ringkasan</a>
+        <a href="#orders" onclick="showSection('orders',this)"><i class="fas fa-box"></i> Pesanan Saya</a>
+        <a href="#wishlist-sec" onclick="showSection('wishlist-sec',this)"><i class="far fa-heart"></i> Wishlist</a>
+        <a href="#address" onclick="showSection('address',this)"><i class="fas fa-map-marker-alt"></i> Alamat Saya</a>
+        <a href="#profile" onclick="showSection('profile',this)"><i class="fas fa-user-edit"></i> Edit Profil</a>
+        <a href="#" onclick="showSection('voucher',this)"><i class="fas fa-ticket-alt"></i> Voucher Saya</a>
+        <a href="#" onclick="showSection('points',this)"><i class="fas fa-coins"></i> Poin & Reward</a>
+        <a href="login.html" style="margin-top:8px;color:#e74c3c!important"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <div>
+      <!-- OVERVIEW -->
+      <div id="sec-overview">
+        <div class="account-content-card">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+            <img src="https://i.pravatar.cc/60?img=1" style="width:60px;height:60px;border-radius:50%;border:3px solid var(--pink)"/>
+            <div>
+              <div style="font-size:1.1rem;font-weight:700">Halo, Siti! 👋</div>
+              <div style="font-size:.82rem;color:var(--gray-500)">siti.rahayu@email.com · 0812-3456-7890</div>
+              <div style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#f5a623,#ff9f0a);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:4px">
+                <i class="fas fa-crown"></i> Platinum Member
+              </div>
+            </div>
+            <a href="#" onclick="showSection('profile',document.querySelector('[onclick*=profile]'))" style="margin-left:auto;font-size:.82rem;color:var(--pink);font-weight:600">Edit Profil</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+            <div style="background:linear-gradient(135deg,#fff5f7,#fff);border:1.5px solid rgba(255,56,92,.15);border-radius:12px;padding:16px;text-align:center">
+              <div style="font-size:1.6rem;font-weight:800;color:var(--pink)">14</div>
+              <div style="font-size:.75rem;color:var(--gray-500)">Total Pesanan</div>
+            </div>
+            <div style="background:linear-gradient(135deg,#f0fdf4,#fff);border:1.5px solid rgba(16,185,129,.15);border-radius:12px;padding:16px;text-align:center">
+              <div style="font-size:1.6rem;font-weight:800;color:#10b981">12</div>
+              <div style="font-size:.75rem;color:var(--gray-500)">Selesai</div>
+            </div>
+            <div style="background:linear-gradient(135deg,#eff6ff,#fff);border:1.5px solid rgba(37,99,235,.15);border-radius:12px;padding:16px;text-align:center">
+              <div style="font-size:1.6rem;font-weight:800;color:#2563eb">8</div>
+              <div style="font-size:.75rem;color:var(--gray-500)">Wishlist</div>
+            </div>
+            <div style="background:linear-gradient(135deg,#fffbeb,#fff);border:1.5px solid rgba(245,158,11,.15);border-radius:12px;padding:16px;text-align:center">
+              <div style="font-size:1.6rem;font-weight:800;color:#d97706">4.850</div>
+              <div style="font-size:.75rem;color:var(--gray-500)">Poin</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="account-content-card">
+          <h3>Pesanan Terbaru</h3>
+          <div id="recentOrders"></div>
+          <a href="#" onclick="showSection('orders',document.querySelector('[onclick*=orders]'))" style="display:block;text-align:center;margin-top:14px;font-size:.84rem;color:var(--pink);font-weight:600">Lihat Semua Pesanan →</a>
+        </div>
+      </div>
+
+      <!-- ORDERS -->
+      <div id="sec-orders" style="display:none">
+        <div class="account-content-card">
+          <h3>Pesanan Saya</h3>
+          <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+            <button class="ttab active" onclick="filterOrders('all',this)" style="padding:7px 16px;border-radius:20px;border:1.5px solid var(--gray-300);background:#fff;font-size:.82rem;font-weight:600;cursor:pointer">Semua (14)</button>
+            <button class="ttab" onclick="filterOrders('processing',this)" style="padding:7px 16px;border-radius:20px;border:1.5px solid var(--gray-300);background:#fff;font-size:.82rem;font-weight:600;cursor:pointer">Diproses (2)</button>
+            <button class="ttab" onclick="filterOrders('shipped',this)" style="padding:7px 16px;border-radius:20px;border:1.5px solid var(--gray-300);background:#fff;font-size:.82rem;font-weight:600;cursor:pointer">Dikirim (1)</button>
+            <button class="ttab" onclick="filterOrders('done',this)" style="padding:7px 16px;border-radius:20px;border:1.5px solid var(--gray-300);background:#fff;font-size:.82rem;font-weight:600;cursor:pointer">Selesai (11)</button>
+          </div>
+          <div id="ordersList"></div>
+        </div>
+      </div>
+
+      <!-- WISHLIST -->
+      <div id="sec-wishlist-sec" style="display:none">
+        <div class="account-content-card">
+          <h3>Wishlist Saya</h3>
+          <div class="prod-grid" id="wishGrid"></div>
+        </div>
+      </div>
+
+      <!-- ADDRESS -->
+      <div id="sec-address" style="display:none">
+        <div class="account-content-card">
+          <h3>Alamat Saya</h3>
+          <div style="display:grid;gap:14px">
+            <div style="border:1.5px solid var(--pink);border-radius:12px;padding:18px;position:relative">
+              <div style="position:absolute;top:12px;right:12px;background:var(--pink);color:#fff;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:4px">UTAMA</div>
+              <div style="font-weight:700;margin-bottom:4px">Siti Rahayu · 0812-3456-7890</div>
+              <div style="font-size:.86rem;color:var(--gray-700);line-height:1.6">Jl. Melati No. 12, RT 03/RW 05, Kebayoran Baru<br/>Jakarta Selatan, DKI Jakarta 12420</div>
+              <div style="display:flex;gap:10px;margin-top:12px">
+                <button style="border:1.5px solid var(--gray-300);background:#fff;border-radius:6px;padding:5px 14px;font-size:.78rem;cursor:pointer">Edit</button>
+                <button style="border:1.5px solid var(--gray-300);background:#fff;border-radius:6px;padding:5px 14px;font-size:.78rem;cursor:pointer;color:#e74c3c">Hapus</button>
+              </div>
+            </div>
+            <div style="border:1.5px solid var(--gray-300);border-radius:12px;padding:18px">
+              <div style="font-weight:700;margin-bottom:4px">Kantor Siti · 0812-3456-7890</div>
+              <div style="font-size:.86rem;color:var(--gray-700);line-height:1.6">Gedung Menara Sudirman Lt. 12, Jl. Jenderal Sudirman<br/>Jakarta Pusat, DKI Jakarta 10220</div>
+              <div style="display:flex;gap:10px;margin-top:12px">
+                <button style="border:1.5px solid var(--gray-300);background:#fff;border-radius:6px;padding:5px 14px;font-size:.78rem;cursor:pointer">Edit</button>
+                <button style="border:1.5px solid var(--gray-300);background:#fff;border-radius:6px;padding:5px 14px;font-size:.78rem;cursor:pointer;color:#e74c3c">Hapus</button>
+                <button style="border:1.5px solid var(--pink);background:#fff;border-radius:6px;padding:5px 14px;font-size:.78rem;cursor:pointer;color:var(--pink)">Jadikan Utama</button>
+              </div>
+            </div>
+            <button style="border:2px dashed var(--gray-300);background:#fff;border-radius:12px;padding:18px;width:100%;font-size:.88rem;color:var(--gray-500);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" onclick="showToast('Fitur tambah alamat akan tersedia!','success')">
+              <i class="fas fa-plus" style="color:var(--pink)"></i> Tambah Alamat Baru
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+      <div id="sec-profile" style="display:none">
+        <div class="account-content-card">
+          <h3>Edit Profil</h3>
+          <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px">
+            <div style="position:relative">
+              <img src="https://i.pravatar.cc/80?img=1" style="width:80px;height:80px;border-radius:50%;border:3px solid var(--pink)"/>
+              <button style="position:absolute;bottom:0;right:0;width:26px;height:26px;border-radius:50%;background:var(--pink);color:#fff;border:2px solid #fff;font-size:.7rem;cursor:pointer"><i class="fas fa-camera"></i></button>
+            </div>
+            <div><div style="font-size:.84rem;font-weight:600;margin-bottom:4px">Foto Profil</div><div style="font-size:.76rem;color:var(--gray-500)">JPG, PNG maks. 5MB</div></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Nama Depan</label><input type="text" value="Siti"/></div>
+            <div class="form-group"><label>Nama Belakang</label><input type="text" value="Rahayu"/></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" value="siti.rahayu@email.com"/></div>
+          <div class="form-group"><label>No. HP / WhatsApp</label><input type="tel" value="0812-3456-7890"/></div>
+          <div class="form-row">
+            <div class="form-group"><label>Tanggal Lahir</label><input type="date" value="1992-05-15"/></div>
+            <div class="form-group"><label>Jenis Kelamin</label><select><option>Perempuan</option><option>Laki-laki</option></select></div>
+          </div>
+          <button onclick="showToast('✅ Profil berhasil disimpan','success')" class="btn-primary" style="margin-top:4px">Simpan Perubahan</button>
+        </div>
+        <div class="account-content-card">
+          <h3>Ganti Kata Sandi</h3>
+          <div class="form-group"><label>Kata Sandi Saat Ini</label><input type="password" placeholder="••••••••"/></div>
+          <div class="form-group"><label>Kata Sandi Baru</label><input type="password" placeholder="Min. 8 karakter"/></div>
+          <div class="form-group"><label>Konfirmasi Kata Sandi Baru</label><input type="password" placeholder="Ulangi kata sandi baru"/></div>
+          <button onclick="showToast('✅ Kata sandi berhasil diubah','success')" class="btn-outline-dark">Ganti Kata Sandi</button>
+        </div>
+      </div>
+
+      <!-- VOUCHER -->
+      <div id="sec-voucher" style="display:none">
+        <div class="account-content-card">
+          <h3>Voucher Saya</h3>
+          <div style="display:grid;gap:12px">
+            ${[
+              {code:'TOKOKITA20',desc:'Diskon 20% untuk semua produk',exp:'30 Jun 2026',min:'Rp 100.000',color:'var(--pink)'},
+              {code:'FREESHIP50',desc:'Gratis ongkir tanpa minimum pembelian',exp:'15 Jul 2026',min:'-',color:'#10b981'},
+              {code:'FLASH10',desc:'Diskon Rp 10.000 untuk Flash Sale',exp:'20 Jun 2026',min:'Rp 50.000',color:'#f59e0b'},
+            ].map(v=>`
+              <div style="border:2px dashed ${v.color};border-radius:12px;padding:16px;display:flex;gap:16px;align-items:center;background:linear-gradient(to right,white 60%,rgba(200,200,200,.05))">
+                <div style="background:${v.color};color:#fff;border-radius:8px;padding:12px;font-size:.72rem;font-weight:800;text-align:center;min-width:80px;letter-spacing:1px">${v.code}</div>
+                <div style="flex:1">
+                  <div style="font-weight:700;font-size:.88rem">${v.desc}</div>
+                  <div style="font-size:.75rem;color:var(--gray-500);margin-top:3px">Min. pembelian ${v.min} · Berlaku s/d ${v.exp}</div>
+                </div>
+                <button onclick="showToast('Kode disalin: ${v.code}','success')" style="border:1.5px solid ${v.color};color:${v.color};background:#fff;border-radius:8px;padding:6px 14px;font-size:.78rem;font-weight:600;cursor:pointer;white-space:nowrap">Salin</button>
+              </div>
+            `).join('')}
+          </div>
+          <div style="margin-top:20px">
+            <div style="font-size:.88rem;font-weight:700;margin-bottom:10px">Punya kode voucher?</div>
+            <div style="display:flex;gap:8px">
+              <input type="text" placeholder="Masukkan kode voucher" style="flex:1;border:1.5px solid var(--gray-300);border-radius:8px;padding:10px 13px;font-family:'Poppins',sans-serif;font-size:.86rem;outline:none"/>
+              <button onclick="showToast('✅ Voucher berhasil ditambahkan!','success')" style="background:var(--dark);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-weight:600;font-size:.86rem;cursor:pointer">Tambahkan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POINTS -->
+      <div id="sec-points" style="display:none">
+        <div class="account-content-card">
+          <h3>Poin & Reward</h3>
+          <div style="background:linear-gradient(135deg,var(--dark),#16213e);border-radius:16px;padding:28px;margin-bottom:20px;color:#fff">
+            <div style="font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:4px">Total Poin Anda</div>
+            <div style="font-size:2.8rem;font-weight:800;color:#f5a623">4.850 <span style="font-size:1rem;font-weight:400;color:rgba(255,255,255,.6)">poin</span></div>
+            <div style="font-size:.82rem;color:rgba(255,255,255,.6);margin-top:6px">≈ Senilai Rp 48.500 untuk belanja berikutnya</div>
+            <div style="margin-top:16px;background:rgba(255,255,255,.08);border-radius:8px;padding:12px">
+              <div style="font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:4px">Status Member: <strong style="color:#f5a623">PLATINUM</strong></div>
+              <div style="height:6px;background:rgba(255,255,255,.15);border-radius:3px"><div style="width:72%;height:100%;background:#f5a623;border-radius:3px"></div></div>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.5);margin-top:4px">7.150 poin lagi untuk naik ke level Diamond</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:.88rem;font-weight:700;margin-bottom:12px">Riwayat Poin</div>
+            ${[
+              {txt:'Pembelian Dress Batik Floral',pt:'+189',date:'15 Jun 2026',c:'#10b981'},
+              {txt:'Pembelian Tas Anyaman Bali x2',pt:'+290',date:'10 Jun 2026',c:'#10b981'},
+              {txt:'Redeem poin untuk diskon',pt:'-200',date:'5 Jun 2026',c:'#e74c3c'},
+              {txt:'Bonus Review Produk',pt:'+50',date:'2 Jun 2026',c:'#10b981'},
+              {txt:'Pembelian Sandal Kulit',pt:'+178',date:'28 Mei 2026',c:'#10b981'},
+            ].map(h=>`
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--gray-200)">
+                <div><div style="font-size:.86rem;font-weight:500">${h.txt}</div><div style="font-size:.74rem;color:var(--gray-500)">${h.date}</div></div>
+                <div style="font-weight:700;font-size:.9rem;color:${h.c}">${h.pt} poin</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<footer class="footer" style="margin-top:48px">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid rgba(255,255,255,.08)">
+      <div class="logo" style="color:#fff">Toko<span style="color:var(--pink)">Kita</span></div>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.4)">© 2026 TokoKita 🇮🇩</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const ORDERS = [
+  {id:'#TK-2026-88241',date:'15 Jun 2026',status:'processing',statusTxt:'Diproses',products:[PRODUCTS[0],PRODUCTS[2]],total:479000},
+  {id:'#TK-2026-87915',date:'10 Jun 2026',status:'shipped',statusTxt:'Dalam Pengiriman',products:[PRODUCTS[4]],total:178000},
+  {id:'#TK-2026-87234',date:'5 Jun 2026',status:'done',statusTxt:'Selesai',products:[PRODUCTS[6]],total:310000},
+  {id:'#TK-2026-86801',date:'28 Mei 2026',status:'done',statusTxt:'Selesai',products:[PRODUCTS[1],PRODUCTS[7]],total:390000},
+  {id:'#TK-2026-85992',date:'20 Mei 2026',status:'done',statusTxt:'Selesai',products:[PRODUCTS[3]],total:220000},
+];
+
+function renderOrders(list) {
+  return list.map(o => `
+    <div class="order-item">
+      <div class="order-header">
+        <div><div class="order-id">${o.id}</div><div class="order-date">${o.date}</div></div>
+        <span class="order-status ${o.status==='done'?'status-delivered':o.status==='processing'?'status-processing':'status-shipped'}">${o.statusTxt}</span>
+      </div>
+      <div class="order-products">
+        ${o.products.map(p=>`<img src="${p.images[0]}" class="order-product-img" alt="${p.name}" title="${p.name}"/>`).join('')}
+        <div style="display:flex;flex-direction:column;justify-content:center;margin-left:4px">
+          ${o.products.map(p=>`<div style="font-size:.82rem;font-weight:500">${p.name}</div>`).join('')}
+        </div>
+      </div>
+      <div class="order-footer">
+        <div class="order-total">${formatPrice(o.total)}</div>
+        <div style="display:flex;gap:8px">
+          ${o.status==='done'?'<button class="btn-review" onclick="showToast(\'Buka form ulasan!\',\'success\')"><i class="fas fa-star" style="margin-right:4px"></i>Beri Ulasan</button>':''}
+          <button onclick="showToast('Melihat detail pesanan...','success')" style="border:1.5px solid var(--gray-300);background:#fff;border-radius:20px;padding:5px 16px;font-size:.78rem;font-weight:600;cursor:pointer">Detail</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterOrders(f, el) {
+  document.querySelectorAll('.ttab').forEach(b=>{b.style.background='#fff';b.style.color='var(--gray-700)';b.style.borderColor='var(--gray-300)';});
+  el.style.background='var(--pink)';el.style.color='#fff';el.style.borderColor='var(--pink)';
+  const list = f==='all' ? ORDERS : ORDERS.filter(o=>o.status===f);
+  document.getElementById('ordersList').innerHTML = renderOrders(list);
+}
+
+function showSection(id, el) {
+  document.querySelectorAll('[id^=sec-]').forEach(s=>s.style.display='none');
+  const sec = document.getElementById('sec-'+id);
+  if(sec) sec.style.display='block';
+  document.querySelectorAll('.account-nav a').forEach(a=>a.classList.remove('active'));
+  if(el) el.classList.add('active');
+  return false;
+}
+
+// Init
+document.getElementById('recentOrders').innerHTML = renderOrders(ORDERS.slice(0,3));
+document.getElementById('ordersList').innerHTML = renderOrders(ORDERS);
+renderProducts('wishGrid', PRODUCTS.filter(p=>p.isFeatured).slice(0,4));
+</script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TokoKita – Fashion Lokal Indonesia</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Toko<span>Kita</span></a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Toko</a></li>
+      <li class="has-drop">
+        <a href="#">Kategori <i class="fas fa-chevron-down fa-xs"></i></a>
+        <div class="dropdown">
+          <a href="shop.html?cat=wanita"><i class="fas fa-female"></i> Wanita</a>
+          <a href="shop.html?cat=pria"><i class="fas fa-male"></i> Pria</a>
+          <a href="shop.html?cat=anak"><i class="fas fa-child"></i> Anak</a>
+          <a href="shop.html?cat=batik"><i class="fas fa-tshirt"></i> Batik</a>
+          <a href="shop.html?cat=aksesori"><i class="fas fa-gem"></i> Aksesori</a>
+          <a href="shop.html?cat=sepatu"><i class="fas fa-shoe-prints"></i> Sepatu</a>
+        </div>
+      </li>
+      <li><a href="shop.html?filter=sale">Sale 🔥</a></li>
+      <li><a href="about.html">Tentang</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="search-wrap">
+        <input type="text" placeholder="Cari produk..." class="nav-search" id="navSearch"/>
+        <i class="fas fa-search"></i>
+      </div>
+      <a href="account.html" class="nav-icon" title="Akun"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="nav-icon" title="Wishlist"><i class="far fa-heart"></i><span class="badge" id="wishCount">0</span></a>
+      <a href="cart.html" class="nav-icon" title="Keranjang"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">3</span></a>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=85')">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-tag">Koleksi Terbaru 2026</span>
+        <h1>Batik Modern<br><em>untuk Generasi Baru</em></h1>
+        <p>Koleksi batik kontemporer yang memadukan motif tradisional Nusantara dengan potongan modern. Dibuat oleh pengrajin lokal terpilih.</p>
+        <div class="hero-btns">
+          <a href="shop.html?cat=batik" class="btn-primary">Belanja Sekarang</a>
+          <a href="shop.html" class="btn-ghost">Lihat Semua Koleksi</a>
+        </div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1445205170230-053b83016050?w=1800&q=85')">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-tag">Sale hingga 50%</span>
+        <h1>Fashion Lokal<br><em>Harga Terjangkau</em></h1>
+        <p>Ribuan pilihan fashion UMKM terbaik Indonesia dengan diskon besar. Dukung produk lokal, tampil memukau setiap hari.</p>
+        <div class="hero-btns">
+          <a href="shop.html?filter=sale" class="btn-primary">Lihat Promo</a>
+          <a href="about.html" class="btn-ghost">Kisah Kami</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <button class="dot active" data-idx="0"></button>
+    <button class="dot" data-idx="1"></button>
+  </div>
+  <button class="hero-arrow prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+  <button class="hero-arrow next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
+</section>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">
+  <div class="promo-ticker">
+    <span>🚚 Gratis Ongkir min. Rp 150.000</span>
+    <span>🎁 Diskon 20% untuk member baru – kode: <strong>TOKOKITA20</strong></span>
+    <span>⭐ Produk lokal pilihan terbaik Indonesia</span>
+    <span>🔄 Retur gratis dalam 30 hari</span>
+    <span>🚚 Gratis Ongkir min. Rp 150.000</span>
+    <span>🎁 Diskon 20% untuk member baru – kode: <strong>TOKOKITA20</strong></span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Belanja per Kategori</h2>
+      <p class="sec-sub">Temukan gaya Anda dari ribuan pilihan fashion lokal terbaik</p>
+    </div>
+    <div class="cat-grid">
+      <a href="shop.html?cat=wanita" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80" alt="Wanita"/>
+        <div class="cat-label">Wanita</div>
+        <div class="cat-count">1.240 produk</div>
+      </a>
+      <a href="shop.html?cat=pria" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400&q=80" alt="Pria"/>
+        <div class="cat-label">Pria</div>
+        <div class="cat-count">892 produk</div>
+      </a>
+      <a href="shop.html?cat=anak" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&q=80" alt="Anak"/>
+        <div class="cat-label">Anak</div>
+        <div class="cat-count">634 produk</div>
+      </a>
+      <a href="shop.html?cat=batik" class="cat-card cat-wide">
+        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80" alt="Batik"/>
+        <div class="cat-label">Batik</div>
+        <div class="cat-count">380 produk</div>
+      </a>
+      <a href="shop.html?cat=aksesori" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80" alt="Aksesori"/>
+        <div class="cat-label">Aksesori</div>
+        <div class="cat-count">510 produk</div>
+      </a>
+      <a href="shop.html?cat=sepatu" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Sepatu"/>
+        <div class="cat-label">Sepatu</div>
+        <div class="cat-count">298 produk</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="sec-header flex-between">
+      <div>
+        <h2 class="sec-title">Produk Terpopuler</h2>
+        <p class="sec-sub">Pilihan terlaris minggu ini dari brand lokal Indonesia</p>
+      </div>
+      <a href="shop.html" class="btn-link">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="prod-grid" id="featuredGrid">
+      <!-- JS generated -->
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STORY BANNER -->
+<section class="brand-banner">
+  <div class="brand-inner">
+    <div class="brand-text">
+      <span class="brand-tag">Kenapa TokoKita?</span>
+      <h2>Kami Percaya pada<br>Kekuatan Produk Lokal</h2>
+      <p>TokoKita lahir dari semangat mendukung UMKM fashion Indonesia. Setiap pembelian Anda membantu pengrajin lokal tumbuh dan berkembang.</p>
+      <div class="brand-stats">
+        <div class="bstat"><span class="bstat-n">2.500+</span><span class="bstat-l">Brand Lokal</span></div>
+        <div class="bstat"><span class="bstat-n">150K+</span><span class="bstat-l">Pelanggan</span></div>
+        <div class="bstat"><span class="bstat-n">98%</span><span class="bstat-l">Puas</span></div>
+      </div>
+      <a href="about.html" class="btn-primary">Pelajari Lebih Lanjut</a>
+    </div>
+    <div class="brand-img">
+      <img src="https://images.unsplash.com/photo-1556742400-b5b7c512dda5?w=700&q=85" alt="brand story"/>
+    </div>
+  </div>
+</section>
+
+<!-- NEW ARRIVALS -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="sec-header flex-between">
+      <div>
+        <h2 class="sec-title">Koleksi Baru</h2>
+        <p class="sec-sub">Produk terbaru yang baru saja hadir</p>
+      </div>
+      <a href="shop.html?filter=new" class="btn-link">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="prod-grid" id="newGrid"></div>
+  </div>
+</section>
+
+<!-- PROMO STRIP -->
+<section class="promo-strip">
+  <div class="promo-card">
+    <i class="fas fa-truck"></i>
+    <div><strong>Gratis Ongkos Kirim</strong><p>Pembelian min. Rp 150.000 ke seluruh Indonesia</p></div>
+  </div>
+  <div class="promo-card">
+    <i class="fas fa-shield-alt"></i>
+    <div><strong>Pembayaran Aman</strong><p>Transaksi dilindungi enkripsi SSL 256-bit</p></div>
+  </div>
+  <div class="promo-card">
+    <i class="fas fa-undo"></i>
+    <div><strong>Retur Mudah 30 Hari</strong><p>Tidak puas? Kembalikan tanpa pertanyaan</p></div>
+  </div>
+  <div class="promo-card">
+    <i class="fas fa-headset"></i>
+    <div><strong>Layanan 24/7</strong><p>Tim support siap membantu kapan saja</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="sec-header centered">
+      <h2 class="sec-title">Apa Kata Pelanggan Kami</h2>
+      <p class="sec-sub">Ribuan pelanggan sudah merasakan manfaatnya</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Kualitas batik yang saya beli benar-benar luar biasa. Jahitan rapi, kain nyaman, dan motifnya unik. Pasti beli lagi!"</p>
+        <div class="testi-user">
+          <img src="https://i.pravatar.cc/44?img=1" alt="user"/>
+          <div><strong>Siti Rahayu</strong><span>Jakarta Selatan</span></div>
+        </div>
+      </div>
+      <div class="testi-card featured-testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"TokoKita adalah go-to saya untuk fashion lokal. Koleksinya selalu update, harganya terjangkau, dan pengiriman super cepat. Sudah pesan lebih dari 10x!"</p>
+        <div class="testi-user">
+          <img src="https://i.pravatar.cc/44?img=5" alt="user"/>
+          <div><strong>Budi Santoso</strong><span>Surabaya</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Senang banget bisa support produk lokal. Tasnya cantik, bahan kulit asli, dan harganya jauh lebih murah dari brand luar negeri."</p>
+        <div class="testi-user">
+          <img src="https://i.pravatar.cc/44?img=9" alt="user"/>
+          <div><strong>Dewi Kartika</strong><span>Bandung</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-sec">
+  <div class="container newsletter-inner">
+    <div>
+      <h2>Dapatkan Penawaran Eksklusif</h2>
+      <p>Daftar newsletter dan dapatkan diskon 20% untuk pembelian pertama Anda</p>
+    </div>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="Masukkan email Anda..." required/>
+      <button type="submit">Daftar Sekarang</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="color:#fff;margin-bottom:12px">Toko<span style="color:var(--pink)">Kita</span></div>
+        <p>Platform fashion UMKM Indonesia terpercaya. Mendukung pengrajin dan desainer lokal agar bisa bersaing di pasar nasional.</p>
+        <div class="socials">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Belanja</h5>
+        <ul>
+          <li><a href="shop.html?cat=wanita">Wanita</a></li>
+          <li><a href="shop.html?cat=pria">Pria</a></li>
+          <li><a href="shop.html?cat=anak">Anak</a></li>
+          <li><a href="shop.html?cat=batik">Batik</a></li>
+          <li><a href="shop.html?cat=aksesori">Aksesori</a></li>
+          <li><a href="shop.html?filter=sale">Sale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Akun Anda</h5>
+        <ul>
+          <li><a href="account.html">Profil Saya</a></li>
+          <li><a href="account.html#orders">Pesanan Saya</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="account.html#address">Alamat</a></li>
+          <li><a href="login.html">Masuk</a></li>
+          <li><a href="register.html">Daftar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Bantuan</h5>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Cara Berbelanja</a></li>
+          <li><a href="#">Pengiriman</a></li>
+          <li><a href="#">Retur & Refund</a></li>
+          <li><a href="#">Hubungi Kami</a></li>
+          <li><a href="#">Karir</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tentang Kami</h5>
+        <ul>
+          <li><a href="about.html">Tentang TokoKita</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Jadi Mitra UMKM</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TokoKita. Bangga Buatan Indonesia 🇮🇩</p>
+      <div class="pay-icons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="mastercard" style="height:22px"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="visa" style="height:16px;filter:brightness(0) invert(1)"/>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="cart.html" class="floating-cart" id="floatingCart">
+  <i class="fas fa-shopping-bag"></i>
+  <span id="floatCount">3</span>
+</a>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+// Hero slider
+let slideIdx = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+function goSlide(n){
+  slides[slideIdx].classList.remove('active');
+  dots[slideIdx].classList.remove('active');
+  slideIdx = (n + slides.length) % slides.length;
+  slides[slideIdx].classList.add('active');
+  dots[slideIdx].classList.add('active');
+}
+document.getElementById('heroPrev').onclick = () => goSlide(slideIdx - 1);
+document.getElementById('heroNext').onclick = () => goSlide(slideIdx + 1);
+dots.forEach(d => d.onclick = () => goSlide(+d.dataset.idx));
+setInterval(() => goSlide(slideIdx + 1), 5000);
+
+// Render featured products
+renderProducts('featuredGrid', PRODUCTS.slice(0, 8));
+renderProducts('newGrid', PRODUCTS.filter(p => p.isNew).slice(0, 4));
+
+function handleNewsletter(e){
+  e.preventDefault();
+  showToast('Terima kasih! Cek email Anda untuk kode diskon 🎉', 'success');
+  e.target.reset();
+}
+</script>
+</body>
+</html>

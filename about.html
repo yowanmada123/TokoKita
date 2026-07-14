@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Tentang Kami – TokoKita</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Toko<span>Kita</span></a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Toko</a></li>
+      <li class="has-drop"><a href="#">Kategori <i class="fas fa-chevron-down fa-xs"></i></a>
+        <div class="dropdown">
+          <a href="shop.html?cat=wanita"><i class="fas fa-female"></i> Wanita</a>
+          <a href="shop.html?cat=pria"><i class="fas fa-male"></i> Pria</a>
+          <a href="shop.html?cat=batik"><i class="fas fa-tshirt"></i> Batik</a>
+          <a href="shop.html?cat=aksesori"><i class="fas fa-gem"></i> Aksesori</a>
+        </div>
+      </li>
+      <li><a href="shop.html?filter=sale">Sale 🔥</a></li>
+      <li class="active"><a href="about.html">Tentang</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="account.html" class="nav-icon"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="nav-icon"><i class="far fa-heart"></i><span class="badge" id="wishCount">0</span></a>
+      <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">0</span></a>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO ABOUT -->
+<section style="background:linear-gradient(135deg,var(--darker) 0%,#1a1a3e 100%);padding:100px 0;overflow:hidden;position:relative">
+  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1556742400-b5b7c512dda5?w=1800&q=60');background-size:cover;background-position:center;opacity:.12"></div>
+  <div class="container" style="position:relative;z-index:1;text-align:center">
+    <span style="display:inline-block;background:rgba(255,56,92,.2);color:#ff8fa3;border-radius:20px;padding:5px 18px;font-size:.76rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px">Kisah Kami</span>
+    <h1 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#fff;line-height:1.2;margin-bottom:18px">Kami Lahir dari Cinta<br>terhadap Produk Lokal</h1>
+    <p style="color:rgba(255,255,255,.65);font-size:1rem;max-width:580px;margin:0 auto 32px;line-height:1.8">TokoKita bukan sekadar toko online. Kami adalah gerakan untuk mengangkat derajat pengrajin dan desainer lokal Indonesia agar bisa bersaing di pasar global.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="shop.html" class="btn-primary">Belanja Sekarang</a>
+      <a href="#our-story" class="btn-ghost">Baca Kisah Kami</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div style="background:#fff;border-bottom:1px solid var(--gray-200)">
+  <div class="container" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+    <div style="text-align:center;padding:32px 20px;border-right:1px solid var(--gray-200)">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--pink)">2.500+</div>
+      <div style="font-size:.82rem;color:var(--gray-500);margin-top:4px">Brand UMKM Aktif</div>
+    </div>
+    <div style="text-align:center;padding:32px 20px;border-right:1px solid var(--gray-200)">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--pink)">150K+</div>
+      <div style="font-size:.82rem;color:var(--gray-500);margin-top:4px">Pelanggan Setia</div>
+    </div>
+    <div style="text-align:center;padding:32px 20px;border-right:1px solid var(--gray-200)">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--pink)">34</div>
+      <div style="font-size:.82rem;color:var(--gray-500);margin-top:4px">Provinsi Terjangkau</div>
+    </div>
+    <div style="text-align:center;padding:32px 20px">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--pink)">98%</div>
+      <div style="font-size:.82rem;color:var(--gray-500);margin-top:4px">Tingkat Kepuasan</div>
+    </div>
+  </div>
+</div>
+
+<!-- OUR STORY -->
+<section class="section bg-white" id="our-story">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+      <div>
+        <span style="color:var(--pink);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px">Asal Usul Kami</span>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin:10px 0 18px;line-height:1.3">Dari Garasi Kecil<br>di Yogyakarta, 2019</h2>
+        <p style="color:#555;line-height:1.85;font-size:.9rem;margin-bottom:16px">TokoKita lahir dari kegelisahan Rina Kusumaningrum, seorang desainer muda asal Jogja, yang melihat begitu banyak pengrajin lokal berbakat yang kesulitan memasarkan produk mereka. Teman-temannya yang pandai membatik, menenun, dan membuat kerajinan tangan harus rela menjual dengan harga murah kepada tengkulak.</p>
+        <p style="color:#555;line-height:1.85;font-size:.9rem;margin-bottom:16px">Bersama dua temannya — Dimas (developer) dan Fajar (marketing) — Rina membangun TokoKita dari garasi rumah orangtuanya. Modal awal hanya Rp 15 juta, 12 mitra UMKM, dan semangat yang luar biasa.</p>
+        <p style="color:#555;line-height:1.85;font-size:.9rem;margin-bottom:24px">Hari ini, TokoKita telah berkembang menjadi platform fashion UMKM terbesar di Indonesia dengan lebih dari 2.500 brand aktif dan 150.000 pelanggan setia di seluruh nusantara.</p>
+        <div style="display:flex;gap:32px">
+          <div><span style="display:block;font-size:1.4rem;font-weight:800;color:var(--pink)">2019</span><span style="font-size:.78rem;color:var(--gray-500)">Tahun Berdiri</span></div>
+          <div><span style="display:block;font-size:1.4rem;font-weight:800;color:var(--pink)">12 → 2.500+</span><span style="font-size:.78rem;color:var(--gray-500)">Mitra UMKM</span></div>
+          <div><span style="display:block;font-size:1.4rem;font-weight:800;color:var(--pink)">Rp 15 Jt</span><span style="font-size:.78rem;color:var(--gray-500)">Modal Awal</span></div>
+        </div>
+      </div>
+      <div style="position:relative">
+        <img src="https://images.unsplash.com/photo-1556742400-b5b7c512dda5?w=700&q=85" alt="our story" style="width:100%;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.12)"/>
+        <div style="position:absolute;bottom:-20px;left:-20px;background:#fff;border-radius:14px;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,.1);border:1px solid var(--gray-200)">
+          <div style="font-size:.72rem;color:var(--gray-500);margin-bottom:2px">Pendiri & CEO</div>
+          <div style="font-size:.92rem;font-weight:700">Rina Kusumaningrum</div>
+          <div style="font-size:.76rem;color:var(--pink)">★ Forbes 30 Under 30 Indonesia 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISI & VISI -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="sec-header centered">
+      <h2 class="sec-title">Visi & Misi Kami</h2>
+      <p class="sec-sub">Yang mendorong kami bekerja setiap hari</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div style="background:#fff;border-radius:var(--radius);padding:36px;border:1.5px solid var(--gray-200)">
+        <div style="width:52px;height:52px;background:rgba(255,56,92,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+          <i class="fas fa-eye" style="color:var(--pink);font-size:1.3rem"></i>
+        </div>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px">Visi</h3>
+        <p style="color:#555;line-height:1.8;font-size:.9rem">Menjadi platform fashion UMKM terdepan di Asia Tenggara yang memberdayakan jutaan pengrajin lokal Indonesia untuk meraih kesejahteraan melalui teknologi digital.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius);padding:36px;border:1.5px solid var(--gray-200)">
+        <div style="width:52px;height:52px;background:rgba(255,56,92,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+          <i class="fas fa-bullseye" style="color:var(--pink);font-size:1.3rem"></i>
+        </div>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px">Misi</h3>
+        <ul style="color:#555;line-height:2;font-size:.88rem;padding-left:18px">
+          <li>Menghubungkan pengrajin lokal langsung dengan konsumen tanpa perantara</li>
+          <li>Memberikan akses pasar digital yang mudah dan terjangkau bagi UMKM</li>
+          <li>Mendidik dan melatih pengrajin dalam bidang pemasaran digital</li>
+          <li>Melestarikan warisan budaya Indonesia melalui fashion kontemporer</li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px">
+      <div style="background:#fff;border-radius:var(--radius);padding:28px;border:1.5px solid var(--gray-200);text-align:center">
+        <i class="fas fa-handshake" style="font-size:2rem;color:var(--pink);margin-bottom:14px;display:block"></i>
+        <h4 style="font-size:.95rem;font-weight:700;margin-bottom:8px">Fair Trade</h4>
+        <p style="font-size:.82rem;color:#555;line-height:1.7">Kami memastikan pengrajin mendapat bagian harga yang adil — minimal 70% dari harga jual masuk ke tangan mereka.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius);padding:28px;border:1.5px solid var(--gray-200);text-align:center">
+        <i class="fas fa-leaf" style="font-size:2rem;color:#10b981;margin-bottom:14px;display:block"></i>
+        <h4 style="font-size:.95rem;font-weight:700;margin-bottom:8px">Ramah Lingkungan</h4>
+        <p style="font-size:.82rem;color:#555;line-height:1.7">Kemasan kami 100% daur ulang. Kami juga mendukung penggunaan pewarna alami oleh pengrajin mitra kami.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius);padding:28px;border:1.5px solid var(--gray-200);text-align:center">
+        <i class="fas fa-graduation-cap" style="font-size:2rem;color:#3b82f6;margin-bottom:14px;display:block"></i>
+        <h4 style="font-size:.95rem;font-weight:700;margin-bottom:8px">Pelatihan UMKM</h4>
+        <p style="font-size:.82rem;color:#555;line-height:1.7">Program TokoKita Academy memberikan pelatihan gratis digital marketing, fotografi produk, dan manajemen keuangan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIM -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="sec-header centered">
+      <h2 class="sec-title">Tim Pendiri</h2>
+      <p class="sec-sub">Orang-orang di balik TokoKita</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div style="text-align:center;background:var(--gray-100);border-radius:var(--radius);padding:32px;transition:all .25s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <img src="https://i.pravatar.cc/100?img=9" alt="Rina" style="width:90px;height:90px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:4px solid var(--pink)"/>
+        <h4 style="font-size:1rem;font-weight:700;margin-bottom:4px">Rina Kusumaningrum</h4>
+        <div style="color:var(--pink);font-size:.8rem;font-weight:600;margin-bottom:10px">CEO & Co-Founder</div>
+        <p style="font-size:.82rem;color:#555;line-height:1.7">Alumni Desain Produk ITS Surabaya. Punya pengalaman 8 tahun di industri fashion lokal. Forbes 30 Under 30 Indonesia 2024.</p>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:14px">
+          <a href="#" style="color:var(--gray-500);font-size:.9rem"><i class="fab fa-linkedin"></i></a>
+          <a href="#" style="color:var(--gray-500);font-size:.9rem"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div style="text-align:center;background:var(--gray-100);border-radius:var(--radius);padding:32px;transition:all .25s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <img src="https://i.pravatar.cc/100?img=5" alt="Dimas" style="width:90px;height:90px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:4px solid var(--pink)"/>
+        <h4 style="font-size:1rem;font-weight:700;margin-bottom:4px">Dimas Prabowo</h4>
+        <div style="color:var(--pink);font-size:.8rem;font-weight:600;margin-bottom:10px">CTO & Co-Founder</div>
+        <p style="font-size:.82rem;color:#555;line-height:1.7">Mantan software engineer di Gojek. Membangun infrastruktur teknologi TokoKita dari nol. Ahli sistem pembayaran digital.</p>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:14px">
+          <a href="#" style="color:var(--gray-500);font-size:.9rem"><i class="fab fa-linkedin"></i></a>
+          <a href="#" style="color:var(--gray-500);font-size:.9rem"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div style="text-align:center;background:var(--gray-100);border-radius:var(--radius);padding:32px;transition:all .25s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <img src="https://i.pravatar.cc/100?img=3" alt="Fajar" style="width:90px;height:90px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:4px solid var(--pink)"/>
+        <h4 style="font-size:1rem;font-weight:700;margin-bottom:4px">Fajar Nugroho</h4>
+        <div style="color:var(--pink);font-size:.8rem;font-weight:600;margin-bottom:10px">CMO & Co-Founder</div>
+        <p style="font-size:.82rem;color:#555;line-height:1.7">Brand strategist dengan portofolio lebih dari 50 brand lokal Indonesia. Pernah bekerja di Tokopedia dan Bukalapak.</p>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:14px">
+          <a href="#" style="color:var(--gray-500);font-size:.9rem"><i class="fab fa-linkedin"></i></a>
+          <a href="#" style="color:var(--gray-500);font-size:.9rem"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="sec-header centered">
+      <h2 class="sec-title">Perjalanan Kami</h2>
+      <p class="sec-sub">Dari garasi kecil menjadi platform nasional</p>
+    </div>
+    <div style="position:relative;max-width:700px;margin:0 auto">
+      <div style="position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--gray-200);transform:translateX(-50%)"></div>
+      ${[
+        {year:'2019', title:'TokoKita Lahir', desc:'Mulai dari garasi di Yogyakarta, 12 mitra UMKM pertama bergabung. Website diluncurkan dengan 80 produk awal.', side:'left'},
+        {year:'2020', title:'Bertahan di Masa Pandemi', desc:'Saat toko fisik tutup, kami justru tumbuh 400%. Membuka peluang bagi ribuan pengrajin yang kehilangan pasar.', side:'right'},
+        {year:'2021', title:'Seri A Funding', desc:'Mendapat pendanaan Rp 50 miliar dari investor lokal dan regional. Ekspansi ke 10 kota besar Indonesia.', side:'left'},
+        {year:'2022', title:'500 Mitra UMKM', desc:'Mencapai 500 brand aktif. Meluncurkan program TokoKita Academy untuk pelatihan digital bagi pengrajin.', side:'right'},
+        {year:'2023', title:'Ekspansi Regional', desc:'Mulai melayani pengiriman ke Malaysia, Singapura, dan Australia. 50.000+ pelanggan aktif.', side:'left'},
+        {year:'2024', title:'Forbes 30 Under 30', desc:'CEO Rina masuk daftar Forbes 30 Under 30 Indonesia. TokoKita raih penghargaan Best E-Commerce UMKM.', side:'right'},
+        {year:'2026', title:'150K+ Pelanggan', desc:'Kini melayani lebih dari 150.000 pelanggan aktif dengan 2.500+ brand UMKM dari 34 provinsi di Indonesia.', side:'left'},
+      ].map((t, i) => `
+        <div style="display:flex;${t.side==='right'?'flex-direction:row-reverse;':''}gap:40px;align-items:center;margin-bottom:32px;position:relative">
+          <div style="flex:1;${t.side==='right'?'text-align:left;':'text-align:right;'}">
+            <div style="background:#fff;border-radius:12px;padding:18px;border:1.5px solid var(--gray-200)">
+              <div style="font-size:.72rem;font-weight:700;color:var(--pink);text-transform:uppercase;margin-bottom:4px">${t.year}</div>
+              <div style="font-size:.92rem;font-weight:700;margin-bottom:6px">${t.title}</div>
+              <div style="font-size:.82rem;color:#555;line-height:1.6">${t.desc}</div>
+            </div>
+          </div>
+          <div style="position:relative;z-index:1;width:40px;height:40px;border-radius:50%;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;flex-shrink:0;box-shadow:0 0 0 4px rgba(255,56,92,.15)">${t.year.slice(-2)}</div>
+          <div style="flex:1"></div>
+        </div>
+      `).join('')}
+    </div>
+  </div>
+</section>
+
+<!-- PENGHARGAAN -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="sec-header centered">
+      <h2 class="sec-title">Penghargaan & Liput Media</h2>
+      <p class="sec-sub">Pengakuan dari berbagai pihak atas kerja keras kami</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px">
+      ${[
+        {logo:'🏆', title:'Best UMKM Platform', org:'Kementerian Koperasi RI', year:'2023'},
+        {logo:'⭐', title:'Forbes 30 Under 30', org:'Forbes Indonesia', year:'2024'},
+        {logo:'🎯', title:'Top 10 Startup', org:'Tech in Asia', year:'2023'},
+        {logo:'🌱', title:'Best Sustainable Brand', org:'Green Business Award', year:'2024'},
+        {logo:'🏅', title:'People Choice Award', org:'Shoppers Choice ID', year:'2025'},
+        {logo:'📰', title:'Diliput 50+ Media', org:'Kompas, Detik, CNN ID', year:'2019-2026'},
+      ].map(a=>`
+        <div style="background:var(--gray-100);border-radius:14px;padding:24px;text-align:center;border:1.5px solid var(--gray-200);transition:all .25s" onmouseover="this.style.borderColor='var(--pink)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform=''">
+          <div style="font-size:2rem;margin-bottom:10px">${a.logo}</div>
+          <div style="font-size:.88rem;font-weight:700;margin-bottom:4px">${a.title}</div>
+          <div style="font-size:.76rem;color:var(--gray-500)">${a.org}</div>
+          <div style="font-size:.72rem;color:var(--pink);font-weight:600;margin-top:4px">${a.year}</div>
+        </div>
+      `).join('')}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg,var(--pink),#ff6b6b);padding:80px 0">
+  <div class="container" style="text-align:center">
+    <h2 style="font-size:clamp(1.6rem,3vw,2.5rem);font-weight:800;color:#fff;margin-bottom:12px">Bergabunglah dengan Gerakan Lokal</h2>
+    <p style="color:rgba(255,255,255,.85);font-size:.95rem;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7">Setiap pembelian Anda adalah dukungan nyata untuk pengrajin lokal Indonesia. Bersama kita wujudkan Indonesia yang mandiri secara ekonomi.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="shop.html" class="btn-ghost" style="border-color:#fff;color:#fff">Mulai Belanja</a>
+      <a href="#" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--pink);border:none;padding:13px 28px;border-radius:30px;font-size:.92rem;font-weight:700">Daftar sebagai Mitra UMKM</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="color:#fff;margin-bottom:12px">Toko<span style="color:var(--pink)">Kita</span></div>
+        <p>Platform fashion UMKM Indonesia terpercaya sejak 2019.</p>
+        <div class="socials">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Belanja</h5><ul>
+        <li><a href="shop.html?cat=wanita">Wanita</a></li>
+        <li><a href="shop.html?cat=pria">Pria</a></li>
+        <li><a href="shop.html?cat=batik">Batik</a></li>
+        <li><a href="shop.html?filter=sale">Sale</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Akun</h5><ul>
+        <li><a href="account.html">Profil Saya</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="cart.html">Keranjang</a></li>
+        <li><a href="login.html">Masuk</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Info</h5><ul>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Karir</a></li>
+        <li><a href="#">Press Kit</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Bantuan</h5><ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Pengiriman</a></li>
+        <li><a href="#">Retur</a></li>
+        <li><a href="#">Hubungi Kami</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TokoKita. Bangga Buatan Indonesia 🇮🇩</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
